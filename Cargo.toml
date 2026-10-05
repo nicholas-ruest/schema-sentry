@@ -1,0 +1,24 @@
+[package]
+name = "schema-sentry"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Detect backward-incompatible JSON Schema changes before they break clients"
+license = "MIT"
+repository = "https://github.com/nicholas-ruest/schema-sentry"
+readme = "README.md"
+keywords = ["json-schema", "compatibility", "cli", "api", "mcp"]
+categories = ["command-line-utilities", "development-tools::testing"]
+
+[dependencies]
+anyhow = "1.0.100"
+clap = { version = "4.5.48", features = ["derive"] }
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.145"
+
+[dev-dependencies]
+tempfile = "3.23.0"
+
+[profile.release]
+lto = "thin"
+strip = "symbols"
